@@ -1,9 +1,14 @@
+#![cfg_attr(not(feature = "std"), no_std)]
+
 #[cfg(test)]
 extern crate serde_json;
 #[cfg(test)]
 #[macro_use]
 extern crate serde_derive;
 
+extern crate alloc;
+
+mod std;
 pub mod aes;
 #[cfg(target_pointer_width = "32")]
 #[path = "arch/arch32.rs"]
