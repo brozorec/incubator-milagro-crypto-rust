@@ -201,9 +201,9 @@ pub fn deserialize_g1(g1_bytes: &[u8]) -> Result<ECP, AmclError> {
     if g1_bytes[0] & COMPRESION_FLAG == 0 {
         deserialize_uncompressed_g1(g1_bytes)
     } else {
-        println!("cycle-tracker-start: IO");
+        println!("cycle-tracker-start: incubator-milagro-crypto-rust:deserialize_compressed_g1");
         let r = deserialize_compressed_g1(g1_bytes);
-        println!("cycle-tracker-end: IO");
+        println!("cycle-tracker-end: incubator-milagro-crypto-rust:deserialize_compressed_g1");
         r
     }
 }

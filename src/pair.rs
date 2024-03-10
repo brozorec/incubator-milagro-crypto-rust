@@ -351,6 +351,7 @@ pub fn ate2(P1: &ECP2, Q1: &ECP, R1: &ECP2, S1: &ECP) -> FP12 {
     let nb = lbits(&mut n3, &mut n);
 
     for i in (1..nb - 1).rev() {
+        println!("cycle-tracker-start: incubator-milagro-crypto-rust:ate2-loop");
         r.sqr();
         let mut lv = linedbl(&mut A, &qx, &qy);
         let lv2 = linedbl(&mut B, &sx, &sy);
@@ -369,6 +370,7 @@ pub fn ate2(P1: &ECP2, Q1: &ECP, R1: &ECP2, S1: &ECP) -> FP12 {
             lv.smul(&lv2);
             r.ssmul(&lv);
         }
+        println!("cycle-tracker-end: incubator-milagro-crypto-rust:ate2-loop");
     }
 
     if ecp::SIGN_OF_X == SignOfX::NegativeX {
